@@ -21,10 +21,8 @@ try await Saga(input: "content", output: "deploy")
         writers: [.itemWriter(swim(renderPage))]
     )
 
-
     // Run the step we registered above
     .run()
-
 
     // All the remaining files that were not parsed from markdown, so for example 
     // images, raw html files and css, are copied as-is to the output folder.
