@@ -1,3 +1,4 @@
+# Ignore Swift files
 .DS_Store
 /.build
 /Packages
@@ -6,3 +7,6 @@ DerivedData/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+
+# Ignore Saga build artifacts
+deploy/
