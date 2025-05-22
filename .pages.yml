@@ -1,3 +1,9 @@
 media:
   input: content/media
   output: deploy/media
+content:
+  - name: homepage
+    label: Home Page
+    type: file
+    path: content/index.md
+  
