@@ -1,6 +1,6 @@
 media:
   input: content/media
-  output: media
+  output: /media
 content:
   - name: homepage
     label: Home Page
