@@ -1,6 +1,6 @@
 media:
   input: content/media
-  output: deploy/media
+  output: media
 content:
   - name: homepage
     label: Home Page
