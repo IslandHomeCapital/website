@@ -1,0 +1,3 @@
+media:
+  input: content/media
+  output: deploy/media
