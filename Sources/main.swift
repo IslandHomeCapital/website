@@ -5,6 +5,13 @@ import HTML
 
 func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
     html(lang: "en-US") {
+        head {
+            meta(charset: "UTF-8")
+            meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
+            title {
+                "Home — Island Home Capital"
+            }
+        }
         body {
             div(id: "content") {
             h1 { context.item.title }
