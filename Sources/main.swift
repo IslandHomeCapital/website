@@ -29,7 +29,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                                     span(class:"sr-only") {
                                         "Open main menu"
                                     }
-                                    img(class: "h-6 w-6", src: "/media/hamburger.svg")
+                                    img(class: "h-6 w-6", src: "media/hamburger.svg")
                                 }
                                 div(class: "hidden lg:ml-12 lg:flex lg:gap-x-14") {
                                     a(class: "text-sm/6 font-semibold text-gray-900", href: "#") {
@@ -72,7 +72,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                                     span(class: "sr-only") {
                                         "Close menu"
                                     }
-                                    img(class: "h-6 w-6", src: "/media/close.svg")
+                                    img(class: "h-6 w-6", src: "media/close.svg")
                                 }
                             }
                             div(class: "mt-6 flow-root") {
@@ -104,7 +104,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                 div(class: "relative") {
                     div(class: "mx-auto max-w-7xl") {
                         div(class: "relative z-10 pt-14 lg:w-full lg:max-w-2xl") {
-                            img(class: "absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block", src: "/media/hero-mask.svg")
+                            img(class: "absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block", src: "media/hero-mask.svg")
                             div(class: "relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0") {
                                 div(class: "mx-auto max-w-2xl lg:mx-0 lg:max-w-xl") {
                                     div(class: "hidden sm:mb-10 sm:flex") {}
@@ -124,7 +124,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                         }
                     }
                     div(class: "bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2") {
-                        img(class: "aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full", src: "/media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg")
+                        img(class: "aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full", src: "media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg")
                     }
                 }
             }
@@ -145,7 +145,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                         dl(class: "col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16") {
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "First-time home buyer"
                                 }
                                 dd(class: "mt-2") {
@@ -154,7 +154,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Cash-out refinance"
                                 }
                                 dd(class: "mt-2") {
@@ -163,7 +163,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Rate-term refinance"
                                 }
                                 dd(class: "mt-2") {
@@ -172,7 +172,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Investment properties"
                                 }
                                 dd(class: "mt-2") {
@@ -181,7 +181,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Agricultural loans"
                                 }
                                 dd(class: "mt-2") {
@@ -190,7 +190,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Veteran loans"
                                 }
                                 dd(class: "mt-2") {
@@ -199,7 +199,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Construction loans"
                                 }
                                 dd(class: "mt-2") {
@@ -208,7 +208,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "/media/check.svg")
+                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
                                     "Mobile app"
                                 }
                                 dd(class: "mt-2") {
