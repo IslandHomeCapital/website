@@ -36,19 +36,16 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                                     """)
                                 }
                                 div(class: "hidden lg:ml-12 lg:flex lg:gap-x-14") {
-                                    a(class: "text-sm/6 font-semibold text-gray-900", href: "#") {
+                                    a(class: "text-sm font-semibold text-gray-900", href: "#") {
                                         "Product"
                                     }
-                                    a(class: "text-sm/6 font-semibold text-gray-900", href: "#") { 
+                                    a(class: "text-sm font-semibold text-gray-900", href: "#") { 
                                         "Features"
                                     }
-                                    a(class: "text-sm/6 font-semibold text-gray-900", href: "#") {
-                                        "Marketplace"
-                                    }
-                                    a(class: "text-sm/6 font-semibold text-gray-900") {
+                                    a(class: "text-sm font-semibold text-gray-900") {
                                         "Company"
                                     }
-                                    a(class: "text-sm/6 font-semibold text-gray-900") {
+                                    a(class: "text-sm font-semibold text-gray-900") {
                                         "Log in"
                                     }
                                 }
