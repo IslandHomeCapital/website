@@ -3,7 +3,11 @@ import SagaParsleyMarkdownReader
 import SagaSwimRenderer
 import HTML
 
-func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
+struct HomeMetadata : Metadata {
+    let hero: String 
+}
+
+func renderPage(context: ItemRenderingContext<HomeMetadata>) -> Node {
     html(lang: "en-US") {
         head {
             meta(charset: "UTF-8")
@@ -133,7 +137,7 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                         }
                     }
                     div(class: "bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2") {
-                        img(class: "aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full", src: "media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg")
+                        img(class: "aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full", src: context.item.metadata.hero)
                     }
                 }
             }
