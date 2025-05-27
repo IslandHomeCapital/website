@@ -29,7 +29,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                                     span(class:"sr-only") {
                                         "Open main menu"
                                     }
-                                    img(class: "h-6 w-6", src: "media/hamburger.svg")
+                                    Node.raw("""
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                    </svg>
+                                    """)
                                 }
                                 div(class: "hidden lg:ml-12 lg:flex lg:gap-x-14") {
                                     a(class: "text-sm/6 font-semibold text-gray-900", href: "#") {
@@ -72,7 +76,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                                     span(class: "sr-only") {
                                         "Close menu"
                                     }
-                                    img(class: "h-6 w-6", src: "media/close.svg")
+                                    Node.raw("""
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                    """)
                                 }
                             }
                             div(class: "mt-6 flow-root") {
@@ -104,7 +112,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                 div(class: "relative") {
                     div(class: "mx-auto max-w-7xl") {
                         div(class: "relative z-10 pt-14 lg:w-full lg:max-w-2xl") {
-                            img(class: "absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block", src: "media/hero-mask.svg")
+                            Node.raw("""
+                            <svg class="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                                <polygon points="0,0 90,0 50,100 0,100" />
+                            </svg>
+                            """)
                             div(class: "relative px-6 py-32 sm:py-40 lg:px-8 lg:py-56 lg:pr-0") {
                                 div(class: "mx-auto max-w-2xl lg:mx-0 lg:max-w-xl") {
                                     div(class: "hidden sm:mb-10 sm:flex") {}
@@ -145,7 +157,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                         dl(class: "col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16") {
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "First-time home buyer"
                                 }
                                 dd(class: "mt-2") {
@@ -154,7 +170,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Cash-out refinance"
                                 }
                                 dd(class: "mt-2") {
@@ -163,7 +183,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Rate-term refinance"
                                 }
                                 dd(class: "mt-2") {
@@ -172,7 +196,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Investment properties"
                                 }
                                 dd(class: "mt-2") {
@@ -181,7 +209,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Agricultural loans"
                                 }
                                 dd(class: "mt-2") {
@@ -190,7 +222,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Veteran loans"
                                 }
                                 dd(class: "mt-2") {
@@ -199,7 +235,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Construction loans"
                                 }
                                 dd(class: "mt-2") {
@@ -208,7 +248,11 @@ func renderPage(context: ItemRenderingContext<EmptyMetadata>) -> Node {
                             }
                             div(class: "relative pl-9") {
                                 dt(class: "font-semibold text-gray-900") {
-                                    img(class: "absolute left-0 top-1 h-5 w-5 text-orange-500", src: "media/check.svg")
+                                    Node.raw("""
+                                    <svg class="absolute left-0 top-1 h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                                    </svg>
+                                    """)
                                     "Mobile app"
                                 }
                                 dd(class: "mt-2") {
