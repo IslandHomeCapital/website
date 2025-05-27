@@ -8,6 +8,4 @@ hero: media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg
 *   Second
     
 
-_Finally_ working
-
-![](media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg)
+_Finally_ working!
