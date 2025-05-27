@@ -1,5 +1,5 @@
 ---
-hero: media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg
+hero: media/cedric-letsch-yxrXBQVwx48-unsplash.jpg
 ---
 # Hello world!
 
