@@ -8,6 +8,10 @@ content:
     type: file
     path: content/index.md
     fields:
+      - name: hero
+        label: Hero Image
+        type: image
+        required: true
       - name: body
         label: Body
         type: rich-text
