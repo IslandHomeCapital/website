@@ -477,6 +477,7 @@ func renderPage(context: ItemRenderingContext<HomeMetadata>) -> Node {
 try await Saga(input: "content", output: "deploy")
     // All Markdown files within the `input` folder will be parsed to html.
     .register(
+        metadata: HomeMetadata.self,
         readers: [.parsleyMarkdownReader],
         writers: [.itemWriter(swim(renderPage))]
     )
