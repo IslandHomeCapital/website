@@ -19,7 +19,7 @@ content:
     label: Pages
     type: collection
     path: content/pages
-    filename: {primary}.md
+    filename: '{primary}.md'
     view: 
       fields: [title, published]
       primary: title
