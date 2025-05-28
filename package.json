@@ -1,7 +1,7 @@
 {
 	"scripts": {
 		"css-build": "pnpm tailwindcss -i ./content/css/input.css -o ./content/css/output.css --minify"
-	}
+	},
 	"dependencies": {
 		"@tailwindcss/cli": "^4.1.8",
 		"tailwindcss": "^4.1.8"
