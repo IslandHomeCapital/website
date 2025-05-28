@@ -8,5 +8,8 @@ DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 
+# Ignore Node Modules
+node_modules/
+
 # Ignore Saga build artifacts
 deploy/

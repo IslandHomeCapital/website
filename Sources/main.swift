@@ -16,13 +16,13 @@ struct PageMetadata: Metadata {
 func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
     html(lang: "en-US") {
         head {
+            link(href: "/css/output.css", rel: "stylesheet")
             meta(charset: "UTF-8")
             meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
             title {
                 "Home — Island Home Capital"
             }
             script(defer: true, src: "https://unpkg.com/alpinejs")
-            script(src: "https://cdn.tailwindcss.com")
         }
         body {
             div(class: "bg-white") {
