@@ -2,6 +2,7 @@ import Saga
 import SagaParsleyMarkdownReader
 import SagaSwimRenderer
 import HTML
+import PathKit
 
 struct HomeMetadata: Metadata {
     let hero: String 
@@ -791,11 +792,17 @@ func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     }
 }
 
+func pagePermalink(item: Item<PageMetadata>) {
+    let components = item.relativeDestination.components.dropFirst()
+    item.relativeDestination = Path(components: components)
+}
+
 try await Saga(input: "content", output: "deploy")
     .register(
         folder: "pages",
         metadata: PageMetadata.self,
         readers: [.parsleyMarkdownReader],
+        itemProcessor: pagePermalink,
         filter: \.metadata.published,
         writers: [.itemWriter(swim(renderPage))]
     )
