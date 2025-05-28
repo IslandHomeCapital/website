@@ -19,6 +19,9 @@ content:
     label: Pages
     type: collection
     path: content/pages
+    view: 
+      fields: [title, published]
+      primary: title
     fields:
       - name: title
         label: Title
