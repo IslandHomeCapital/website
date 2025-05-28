@@ -10,6 +10,7 @@ struct HomeMetadata: Metadata {
 
 struct PageMetadata: Metadata {
     let published: Bool
+    let title: String
 }
 
 func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
@@ -797,12 +798,16 @@ func pagePermalink(item: Item<PageMetadata>) {
     item.relativeDestination = Path(components: components)
 }
 
+func title(item: Item<PageMetadata>) {
+    item.title = item.metadata.title
+}
+
 try await Saga(input: "content", output: "deploy")
     .register(
         folder: "pages",
         metadata: PageMetadata.self,
         readers: [.parsleyMarkdownReader],
-        itemProcessor: pagePermalink,
+        itemProcessor: sequence(title, pagePermalink),
         filter: \.metadata.published,
         writers: [.itemWriter(swim(renderPage))]
     )
