@@ -9,6 +9,7 @@ struct HomeMetadata: Metadata {
 
 struct PageMetadata: Metadata {
     let published: Bool
+    let title: String
 }
 
 func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
