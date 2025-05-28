@@ -18,7 +18,7 @@ content:
   - name: pages
     label: Pages
     type: collection
-    path: pages
+    path: content/pages
     view:
       fields: [title, published]
     fields:
