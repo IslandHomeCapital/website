@@ -7,6 +7,10 @@ struct HomeMetadata : Metadata {
     let hero: String 
 }
 
+struct PageMetadata : Metadata {
+    let published: Bool
+}
+
 func renderPage(context: ItemRenderingContext<HomeMetadata>) -> Node {
     html(lang: "en-US") {
         head {
@@ -479,6 +483,14 @@ try await Saga(input: "content", output: "deploy")
     .register(
         metadata: HomeMetadata.self,
         readers: [.parsleyMarkdownReader],
+        writers: [.itemWriter(swim(renderPage))]
+    )
+
+    .register(
+        folder: "pages",
+        metadata: PageMetadata.self,
+        readers: [.parsleyMarkdownReader],
+        filter: \.published,
         writers: [.itemWriter(swim(renderPage))]
     )
 
