@@ -1,6 +1,6 @@
 media:
   input: content/media
-  output: /media
+  output: /website/media
   extensions: [jpg, svg]
 content:
   - name: homepage
