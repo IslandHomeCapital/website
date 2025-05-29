@@ -24,14 +24,30 @@ jobs:
       - name: Build Tailwind
         run: pnpm run css-build
 
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: output.css
+          path: content/css/output.css
+          if-no-files-found: error
+          retention-days: 1
+          overwrite: true
+
   gh-pages:
     needs: build-css
     runs-on: ubuntu-latest
     container:
       image: 'swift:5.10'
     steps:
-      # - name: Checkout
-      #   uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.3.0
+        with:
+          # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+          name: output.css
+          path: content/css/output.css
 
       - name: Build Swift Saga📱
         run: swift run
