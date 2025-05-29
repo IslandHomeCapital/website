@@ -3,6 +3,19 @@ media:
   output: /website/media
   extensions: [jpg, svg]
 content:
+  - name: site
+    label: Site
+    type: file
+    path: content/site.md
+    fields:
+      - name: name
+        label: Name
+        required: true
+        type: string
+      - name: url
+        label: URL
+        required: true
+        type: string
   - name: homepage
     label: Home Page
     type: file
