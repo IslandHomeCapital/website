@@ -4,6 +4,11 @@ import SagaSwimRenderer
 import HTML
 import PathKit
 
+enum SiteMetadata {
+    static let name = "Island Home Capital"
+    static let url = "https://islandhomecapital.github.io/website/"
+}
+
 struct HomeMetadata: Metadata {
     let hero: String 
 }
@@ -174,11 +179,11 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     html(lang: "en-US") {
         head {
-            link(href: "/website/css/output.css", rel: "stylesheet")
+            link(href: "\(SiteMetadata.url)css/output.css", rel: "stylesheet")
             meta(charset: "UTF-8")
             meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
             title {
-                "\(context.item.title) — Island Home Capital"
+                "\(context.item.title) — \(SiteMetadata.name)"
             }
             script(defer: true, src: "https://unpkg.com/alpinejs")
         }
