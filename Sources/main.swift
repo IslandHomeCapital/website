@@ -172,13 +172,28 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
 }        
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
-    baseLayout(title: context.item.title) {
-        div(class: "mx-auto max-w-7xl") {
-            article(class: "prose md:prose-lg lg:prose-xl") {
-                h1 { context.item.title }
-                Node.raw(context.item.body)
+    html(lang: "en-US") {
+        head {
+            link(href: "/website/css/output.css", rel: "stylesheet")
+            meta(charset: "UTF-8")
+            meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
+            title {
+                "\(context.item.title) — Island Home Capital"
             }
-        } 
+            script(defer: true, src: "https://unpkg.com/alpinejs")
+        }
+        body {
+            div(class: "bg-white px-6 py-32 lg:px-8") {
+                div(class: "mx-auto max-w-3xl text-base/7 text-gray-700") {
+                    article(class: "prose") {
+                        h1 {
+                            context.item.title
+                        }
+                        Node.raw(context.item.body)
+                    }
+                }
+            }
+        }
     }
 }
 
