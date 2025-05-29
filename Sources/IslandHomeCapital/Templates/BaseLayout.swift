@@ -105,9 +105,8 @@ func baseLayout(title pageTitle: String, @NodeBuilder children: () -> NodeConver
                     }
                 }
                 children()
-            }
-            hr(class: "border-gray-900/10")
-            div(class: "bg-white") {
+                // Not sure why we needed this border-color
+                hr(class: "border-gray-900/10")
                 footer(customAttributes: ["aria-labelledby": "footer-heading"]) {
                     h2(class: "sr-only", id: "footer-heading") {
                         "Footer"
