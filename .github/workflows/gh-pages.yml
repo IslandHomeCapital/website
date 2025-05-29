@@ -22,7 +22,7 @@ jobs:
           standalone: true
 
       - name: Build Tailwind
-        run: pnpm exec @tailwindcss/cli -i ./content/css/input.css -o ./content/css/output.css --minify
+        run: pnpm run css-build
 
   gh-pages:
     needs: build-css
