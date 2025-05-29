@@ -1,5 +1,5 @@
 ---
-hero: media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg
+hero: /website/media/ian-stauffer-r5kvBZIFP0A-unsplash.jpg
 ---
 # Hello world!
 
