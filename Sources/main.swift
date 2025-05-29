@@ -13,10 +13,11 @@ struct PageMetadata: Metadata {
     let title: String
 }
 
+// Change the css link when switched to the islandhomecapital.com domain
 func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
     html(lang: "en-US") {
         head {
-            link(href: "/css/output.css", rel: "stylesheet")
+            link(href: "/website/css/output.css", rel: "stylesheet")
             meta(charset: "UTF-8")
             meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
             title {
