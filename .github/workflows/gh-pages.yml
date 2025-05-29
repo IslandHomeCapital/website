@@ -47,7 +47,7 @@ jobs:
         with:
           # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
           name: output.css
-          path: content/css/output.css
+          path: content/css/
 
       - name: Build Swift Saga📱
         run: swift run
