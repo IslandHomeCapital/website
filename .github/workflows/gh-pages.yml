@@ -6,16 +6,13 @@ on:
         - main
     
 jobs:
-  gh-pages:
+  build-css:
     runs-on: ubuntu-latest
     container:
-      image: 'swift:5.10'
+      image: 'node:22'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3.9.1
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4.1.0
@@ -23,9 +20,18 @@ jobs:
           version: latest
           run_install: true
           standalone: true
-        
+
       - name: Build Tailwind
         run: pnpx @tailwindcss/cli -i ./content/css/input.css -o ./content/css/output.css --minify
+
+  gh-pages:
+    needs: build-css
+    runs-on: ubuntu-latest
+    container:
+      image: 'swift:5.10'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Build Swift Saga📱
         run: swift run
