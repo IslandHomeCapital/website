@@ -4,11 +4,11 @@ import HTML
 func baseLayout(title pageTitle: String, @NodeBuilder children: () -> NodeConvertible) -> Node {
     html(lang: "en-US") {
         head {
-            link(href: "/website/css/output.css", rel: "stylesheet")
+            link(href: "\(SiteMetadata.url)css/output.css", rel: "stylesheet")
             meta(charset: "UTF-8")
             meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
             title {
-                "\(pageTitle) — Island Home Capital"
+                "\(pageTitle) — \(SiteMetadata.name)"
             }
             script(defer: true, src: "https://unpkg.com/alpinejs")
         }
@@ -20,7 +20,7 @@ func baseLayout(title pageTitle: String, @NodeBuilder children: () -> NodeConver
                             nav(class: "flex items-center justify-between lg:justify-start", customAttributes: ["aria-label": "Global"]) {
                                 div(class:"text-base font-serif font-semibold text-orange-600") {
                                     a(href: "#") {
-                                        "Island Home Capital"
+                                        SiteMetadata.name
                                     }
                                 }
                                 button(class:"-m-2.5 rounded-md p-2.5 text-gray-700 lg:hidden", type: "button", customAttributes: ["@click": "open = true"]) {
@@ -63,7 +63,7 @@ func baseLayout(title pageTitle: String, @NodeBuilder children: () -> NodeConver
                                 div(class: "h-8 w-auto text-base font-serif font-semibold text-orange-600") {
                                     a(class: "-m-1.5 p-1.5", href: "#") {
                                         span() {
-                                          "Island Home Capital"
+                                          SiteMetadata.name
                                         }
                                     }
                                 }

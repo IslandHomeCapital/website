@@ -177,25 +177,14 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
 }        
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
-    html(lang: "en-US") {
-        head {
-            link(href: "\(SiteMetadata.url)css/output.css", rel: "stylesheet")
-            meta(charset: "UTF-8")
-            meta(content: "width=device-width, initial-scale=1.0", name: "viewport")
-            title {
-                "\(context.item.title) — \(SiteMetadata.name)"
-            }
-            script(defer: true, src: "https://unpkg.com/alpinejs")
-        }
-        body {
-            div(class: "bg-white px-6 py-32 lg:px-8") {
-                div(class: "mx-auto max-w-3xl text-base/7 text-gray-700") {
-                    article(class: "prose") {
-                        h1 {
-                            context.item.title
-                        }
-                        Node.raw(context.item.body)
+    baseLayout(title: context.item.title) {
+        div(class: "px-6 py-32 lg:px-8") {
+            div(class: "mx-auto max-w-3xl text-base/7 text-gray-700") {
+                article(class: "prose") {
+                    h1 {
+                        context.item.title
                     }
+                    Node.raw(context.item.body)
                 }
             }
         }
