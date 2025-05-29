@@ -168,10 +168,6 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        div(id: "content") {
-            h1 { context.item.title }
-            Node.raw(context.item.body)
-        }
     }                    
 }        
 
