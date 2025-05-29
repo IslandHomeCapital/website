@@ -173,10 +173,12 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     baseLayout(title: context.item.title) {
-        div(class: "prose", id: "content") {
-            h1 { context.item.title }
-            Node.raw(context.item.body)
-        }
+        div(class: "mx-auto max-w-7xl") {
+            article(class: "prose md:prose-lg lg:prose-xl") {
+                h1 { context.item.title }
+                Node.raw(context.item.body)
+            }
+        } 
     }
 }
 
