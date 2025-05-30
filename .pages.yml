@@ -12,6 +12,12 @@ content:
         label: Hero Image
         type: image
         required: true
+      - name: testimonials
+        label: Testimonials
+        type: reference
+        options:
+          collection: testimonials
+          multiple: true
       - name: body
         label: Body
         type: rich-text
