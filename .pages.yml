@@ -36,3 +36,25 @@ content:
       - name: body
         label: Body
         type: rich-text
+  - name: testimonials
+    label: Testimonials
+    type: collection
+    path: content/testimonials
+    view:
+      fields: [name, relationship, body]
+      primary: name
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+      - name: relationship
+        label: Relationship
+        type: select
+        required: true
+        options:
+          values: [Borrower, Realtor]
+      - name: body
+        label: Body
+        type: rich-text
+        required: true
