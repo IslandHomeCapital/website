@@ -9,8 +9,20 @@ enum SiteMetadata {
     static let url = "https://islandhomecapital.github.io/website/"
 }
 
+// enum Relationship: String, Decodable {
+//     case borrower = "Borrower"
+//     case realtor = "Realtor"
+// }
+
+// struct Testimonial : Decodable {
+//     let name: String
+//     let body: String
+//     let relationship: Relationship
+// }
+
 struct HomeMetadata: Metadata {
     let hero: String 
+//    let testimonials: [Testimonial]
 }
 
 struct PageMetadata: Metadata {
