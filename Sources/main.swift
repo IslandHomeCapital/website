@@ -186,6 +186,9 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
+        div {
+            context.item.metadata.testimonials
+        }
     }                    
 }
 
