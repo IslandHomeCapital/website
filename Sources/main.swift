@@ -187,7 +187,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
             }
         }
         div {
-            context.item.metadata.testimonials
+            renderTestimonials(context.item.metadata.testimonials)
         }
     }                    
 }
@@ -201,6 +201,12 @@ func renderTestimonial(_ testimonial: Document) -> Node {
             testimonial.metadata["name"]!
             testimonial.metadata["relationship"]!
         }
+    }
+}
+
+func renderTestimonials(_ testimonials: [String]) -> Node {
+    ul {
+        testimonials.joined(separator: "")
     }
 }
 
