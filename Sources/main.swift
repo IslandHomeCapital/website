@@ -1,5 +1,6 @@
 import Saga
 import SagaParsleyMarkdownReader
+import Parsley
 import SagaSwimRenderer
 import HTML
 import PathKit
@@ -9,23 +10,23 @@ enum SiteMetadata {
     static let url = "https://islandhomecapital.github.io/website/"
 }
 
-// enum Relationship: String, Decodable {
-//     case borrower = "Borrower"
-//     case realtor = "Realtor"
-// }
-
-// struct Testimonial : Decodable {
-//     let name: String
-//     let body: String
-//     let relationship: Relationship
-// }
-
-struct HomeMetadata: Metadata {
-    let hero: String 
-//    let testimonials: [Testimonial]
+enum Relationship : String, Decodable {
+    case borrower = "Borrower"
+    case realtor = "Realtor"
 }
 
-struct PageMetadata: Metadata {
+struct TestimonialMetadata : Metadata, Decodable {
+    let name: String
+    let body: String
+    let relationship: Relationship
+}
+
+struct HomeMetadata : Metadata {
+    let hero: String 
+    var testimonials: [String]
+}
+
+struct PageMetadata : Metadata {
     let published: Bool
     let title: String
 }
@@ -186,7 +187,19 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
             }
         }
     }                    
-}        
+}
+
+func renderTestimonial(_ testimonial: Document) -> Node {
+    li {
+        p {
+            testimonial.body
+        }
+        strong {
+            testimonial.metadata["name"]!
+            testimonial.metadata["relationship"]!
+        }
+    }
+}
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     baseLayout(title: context.item.title) {
@@ -212,6 +225,19 @@ func title(item: Item<PageMetadata>) {
     item.title = item.metadata.title
 }
 
+func getTestimonial(_ file: String) -> Document {
+    let path = Path(file)
+    let data = try! path.read()
+    let str = String(decoding: data, as: UTF8.self)
+    let html = try! Parsley.parse(str)
+
+    return html
+}
+
+func getTestimonials(item: Item<HomeMetadata>) {
+    item.metadata.testimonials = item.metadata.testimonials.map { renderTestimonial(getTestimonial($0)).toString() }
+}
+
 try await Saga(input: "content", output: "deploy")
     .register(
         folder: "pages",
@@ -226,6 +252,7 @@ try await Saga(input: "content", output: "deploy")
     .register(
         metadata: HomeMetadata.self,
         readers: [.parsleyMarkdownReader],
+        itemProcessor: getTestimonials,
         writers: [.itemWriter(swim(renderHome))]
     )
 
