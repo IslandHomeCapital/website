@@ -22,7 +22,7 @@ struct TestimonialMetadata : Metadata, Decodable {
 
 struct HomeMetadata : Metadata {
     let hero: String 
-    var testimonials: [String]
+    let testimonials: [String]
 }
 
 struct PageMetadata : Metadata {
@@ -294,4 +294,4 @@ try await Saga(input: "content", output: "deploy")
     // images, raw html files and css, are copied as-is to the output folder.
     .staticFiles()
 
-print(testimonials)
+dump(testimonials)
