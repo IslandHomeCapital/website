@@ -17,7 +17,6 @@ enum Relationship : String, Decodable {
 
 struct TestimonialMetadata : Metadata, Decodable {
     let name: String
-    let body: String
     let relationship: Relationship
 }
 
