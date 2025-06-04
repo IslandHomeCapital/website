@@ -186,29 +186,38 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        div {
-            renderTestimonials(context.item.metadata.testimonials)
-        }
     }                    
 }
 
-func renderTestimonial(_ testimonial: Document) -> Node {
-    li {
-        p {
-            testimonial.body
-        }
-        strong {
-            testimonial.metadata["name"]!
-            testimonial.metadata["relationship"]!
-        }
-    }
-}
+// func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
+//     ul {
+//         li {
+//             testimonial.body
+//         }
+//         li {
+//             testimonial.metadata.name
+//         }
+//         li {
+//             testimonial.metadata.relationship.rawValue
+//         }
+//     }
+// }
 
-func renderTestimonials(_ testimonials: [String]) -> Node {
-    ul {
-        testimonials.joined(separator: "")
-    }
-}
+// func renderTestimonials(_ testimonials: [Node]) -> Node {
+//     ul {
+//         for testimonial in testimonials {
+//             li {
+//                 testimonial
+//             }
+//         }
+//     }
+// }
+
+// extension NodeBuilder {
+//     static func buildArray(_ components: [Node]) -> Node {
+//         .fragment(components)
+//     }
+// }
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     baseLayout(title: context.item.title) {
@@ -234,20 +243,34 @@ func title(item: Item<PageMetadata>) {
     item.title = item.metadata.title
 }
 
-func getTestimonial(_ file: String) -> Document {
-    let path = Path(file)
-    let data = try! path.read()
-    let str = String(decoding: data, as: UTF8.self)
-    let html = try! Parsley.parse(str)
+// func getTestimonial(_ file: String) -> Document {
+//     let path = Path(file)
+//     let data = try! path.read()
+//     let str = String(decoding: data, as: UTF8.self)
+//     let html = try! Parsley.parse(str)
 
-    return html
-}
+//     return html
+// }
 
-func getTestimonials(item: Item<HomeMetadata>) {
-    item.metadata.testimonials = item.metadata.testimonials.map { renderTestimonial(getTestimonial($0)).toString() }
-}
+// func getTestimonials(item: Item<HomeMetadata>) {
+//     // Use item.metadata.testimonials to lookup a testimonial and then render it
+//     item.metadata.testimonials = item.metadata.testimonials.map { 
+//         let path = $0
+//         return swim(renderTestimonial(testimonials.first(where: { $0.absoluteSource.string == path })))!
+//     }
+//     item.metadata.testimonials = item.metadata.testimonials.map { renderTestimonial(getTestimonial($0)).toString() }
+// }
+
+var testimonials: [Item<TestimonialMetadata>]
 
 try await Saga(input: "content", output: "deploy")
+    .register(
+        folder: "testimonials", 
+        metadata: TestimonialMetadata.self, 
+        readers: [.parsleyMarkdownReader],
+        itemProcessor: { testimonials.append($0) },
+        writers: [])
+
     .register(
         folder: "pages",
         metadata: PageMetadata.self,
@@ -261,7 +284,7 @@ try await Saga(input: "content", output: "deploy")
     .register(
         metadata: HomeMetadata.self,
         readers: [.parsleyMarkdownReader],
-        itemProcessor: getTestimonials,
+        // itemProcessor: getTestimonials,
         writers: [.itemWriter(swim(renderHome))]
     )
 
@@ -271,3 +294,5 @@ try await Saga(input: "content", output: "deploy")
     // All the remaining files that were not parsed from markdown, so for example 
     // images, raw html files and css, are copied as-is to the output folder.
     .staticFiles()
+
+print(testimonials)
