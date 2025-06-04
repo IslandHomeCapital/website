@@ -261,7 +261,7 @@ func title(item: Item<PageMetadata>) {
 //     item.metadata.testimonials = item.metadata.testimonials.map { renderTestimonial(getTestimonial($0)).toString() }
 // }
 
-var testimonials: [Item<TestimonialMetadata>]
+var testimonials: [Item<TestimonialMetadata>] = []
 
 try await Saga(input: "content", output: "deploy")
     .register(
