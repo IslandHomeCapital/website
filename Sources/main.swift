@@ -22,7 +22,7 @@ struct TestimonialMetadata : Metadata, Decodable {
 
 struct HomeMetadata : Metadata {
     let hero: String 
-    let testimonials: [String]
+    // let testimonials: [String]
 }
 
 struct PageMetadata : Metadata {
