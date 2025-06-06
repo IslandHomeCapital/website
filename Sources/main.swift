@@ -186,7 +186,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
             }
         }
         p {
-            context.item.metadata.testimonials.joined()
+            context.item.metadata.testimonials
         }
     }                    
 }
