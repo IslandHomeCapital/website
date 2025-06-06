@@ -22,7 +22,7 @@ struct TestimonialMetadata : Metadata, Decodable {
 
 struct HomeMetadata : Metadata {
     let hero: String 
-    // let testimonials: [String]
+    let testimonials: [String]
 }
 
 struct PageMetadata : Metadata {
@@ -184,6 +184,9 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                     }
                 }
             }
+        }
+        p {
+            context.item.metadata.testimonials.joined()
         }
     }                    
 }
