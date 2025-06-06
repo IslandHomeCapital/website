@@ -1,13 +1,13 @@
 {
-  "originHash" : "14933228dec92ff308af3bb15e4381da5462b1006dcfd300f28f40dad5698a40",
+  "originHash" : "a9c0249549b5518b0a9c605b1447b5cd10567c3c390df6d2fa32a55f358200bb",
   "pins" : [
     {
-      "identity" : "parsley",
+      "identity" : "ink",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/loopwerk/Parsley",
+      "location" : "https://github.com/johnsundell/ink.git",
       "state" : {
-        "revision" : "ad35091c7a790f04fc5a912c8bde8963eba753d2",
-        "version" : "0.9.1"
+        "revision" : "bcc9f219900a62c4210e6db726035d7f03ae757b",
+        "version" : "0.6.0"
       }
     },
     {
@@ -29,11 +29,11 @@
       }
     },
     {
-      "identity" : "sagaparsleymarkdownreader",
+      "identity" : "sagainkmarkdownreader",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/loopwerk/SagaParsleyMarkdownReader",
+      "location" : "https://github.com/loopwerk/SagaInkMarkdownReader",
       "state" : {
-        "revision" : "9605b14aa43e32eec454d2dff26bcaf95a1a1a93",
+        "revision" : "016a1f00952132873490a732dc80da5f1ba1cbc0",
         "version" : "1.0.0"
       }
     },
@@ -56,12 +56,12 @@
       }
     },
     {
-      "identity" : "swift-cmark-gfm",
+      "identity" : "splash",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/stackotter/swift-cmark-gfm",
+      "location" : "https://github.com/JohnSundell/Splash",
       "state" : {
-        "revision" : "7ec44e7384793e507cf046336aef68586719a24e",
-        "version" : "1.0.2"
+        "revision" : "7f4df436eb78fe64fe2c32c58006e9949fa28ad8",
+        "version" : "0.16.0"
       }
     },
     {

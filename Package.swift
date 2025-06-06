@@ -7,7 +7,7 @@ let package = Package(
     name: "website",
     dependencies: [
         .package(url: "https://github.com/loopwerk/Saga", from: "2.0.0"),
-        .package(url: "https://github.com/loopwerk/SagaParsleyMarkdownReader", from: "1.0.0"),
+        .package(url: "https://github.com/loopwerk/SagaInkMarkdownReader", from: "1.0.0"),
         .package(url: "https://github.com/loopwerk/SagaSwimRenderer", from: "1.0.0"),
     ],
     targets: [
@@ -17,7 +17,7 @@ let package = Package(
             name: "website",
             dependencies: [
                 "Saga", 
-                "SagaParsleyMarkdownReader", 
+                "SagaInkMarkdownReader", 
                 "SagaSwimRenderer"
             ]
         )

@@ -1,5 +1,5 @@
 import Saga
-import SagaParsleyMarkdownReader
+import SagaInkMarkdownReader
 import Parsley
 import SagaSwimRenderer
 import HTML
@@ -269,14 +269,14 @@ try await Saga(input: "content", output: "deploy")
     .register(
         folder: "testimonials", 
         metadata: TestimonialMetadata.self, 
-        readers: [.parsleyMarkdownReader],
+        readers: [.inkMardownReader],
         itemProcessor: { testimonials.append($0) },
         writers: [])
 
     .register(
         folder: "pages",
         metadata: PageMetadata.self,
-        readers: [.parsleyMarkdownReader],
+        readers: [.inkMarkdownReader],
         itemProcessor: sequence(title, pagePermalink),
         filter: \.metadata.published,
         writers: [.itemWriter(swim(renderPage))]
@@ -285,7 +285,7 @@ try await Saga(input: "content", output: "deploy")
     // All Markdown files within the `input` folder will be parsed to html.
     .register(
         metadata: HomeMetadata.self,
-        readers: [.parsleyMarkdownReader],
+        readers: [.inkMarkdownReader],
         // itemProcessor: getTestimonials,
         writers: [.itemWriter(swim(renderHome))]
     )
