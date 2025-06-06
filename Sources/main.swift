@@ -20,14 +20,9 @@ struct TestimonialMetadata : Metadata, Decodable {
     let relationship: Relationship
 }
 
-struct ListItem : Decodable {
-    let stringValue: String
-    let intValue: Int?
-}
-
 struct HomeMetadata : Metadata {
     let hero: String 
-    let testimonials: [ListItem]
+    let testimonials: String
 }
 
 struct PageMetadata : Metadata {
@@ -191,7 +186,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
             }
         }
         p {
-            context.item.metadata.testimonials.map { $0.stringValue }.joined()
+            context.item.metadata.testimonials.joined()
         }
     }                    
 }
