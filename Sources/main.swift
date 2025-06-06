@@ -1,6 +1,5 @@
 import Saga
 import SagaInkMarkdownReader
-import Parsley
 import SagaSwimRenderer
 import HTML
 import PathKit
