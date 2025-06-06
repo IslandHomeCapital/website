@@ -268,7 +268,7 @@ try await Saga(input: "content", output: "deploy")
     .register(
         folder: "testimonials", 
         metadata: TestimonialMetadata.self, 
-        readers: [.inkMardownReader],
+        readers: [.inkMarkdownReader],
         itemProcessor: { testimonials.append($0) },
         writers: [])
 
