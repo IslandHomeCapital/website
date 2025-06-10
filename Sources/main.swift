@@ -287,4 +287,4 @@ try await Saga(input: "content", output: "deploy")
     // images, raw html files and css, are copied as-is to the output folder.
     .staticFiles()
 
-dump(testimonials.filter { context.item.metadata.testimonials.contains("testimonials/2025-05-29-corina-j.md") })
+dump(testimonials.filter { $0.relativeSource.string == "testimonials/2025-05-29-corina-j.md" })
