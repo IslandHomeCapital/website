@@ -184,7 +184,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource) })
+        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource.string) })
     }                    
 }
 
@@ -202,7 +202,7 @@ func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
                         testimonial.metadata.name
                     }
                     div(class: "text-gray-600") {
-                        testimonial.metadata.relationship
+                        testimonial.metadata.relationship.encode(to: String)
                     }
                 }
             }
@@ -223,7 +223,7 @@ func renderTestimonials(_ testimonials: [Item<TestimonialMetadata>]) -> Node {
             }
             div(class: "mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none") {
                 div(class: "-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3") {
-                    testimonials.map { renderTestimonial($0) }.join("")
+                    testimonials.map { renderTestimonial($0) }
                 }
             }
         }
