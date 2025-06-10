@@ -9,7 +9,7 @@ enum SiteMetadata {
     static let url = "https://islandhomecapital.github.io/website/"
 }
 
-enum Relationship : String, Decodable {
+enum Relationship : String, Codable {
     case borrower = "Borrower"
     case realtor = "Realtor"
 }
@@ -21,7 +21,7 @@ struct TestimonialMetadata : Metadata, Decodable {
 
 struct HomeMetadata : Metadata {
     let hero: String 
-    let testimonials: String
+    let testimonials: [String]
 }
 
 struct PageMetadata : Metadata {
@@ -184,41 +184,51 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        p {
-            context.item.metadata.testimonials
-        }
+        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource) })
     }                    
 }
 
-// func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
-//     ul {
-//         li {
-//             testimonial.body
-//         }
-//         li {
-//             testimonial.metadata.name
-//         }
-//         li {
-//             testimonial.metadata.relationship.rawValue
-//         }
-//     }
-// }
+func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
+    div(class: "pt-8 sm:inline-block sm:w-full sm:px-4"> ) {
+        figure(class: "rounded-2xl bg-gray-50 p-8 text-sm/6") {
+            blockquote(class: "text-gray-900") {
+                p {
+                    testimonial.body
+                }
+            }
+            figcaption(class: "mt-6 flex items-center gap-x-4") {
+                div {
+                    div(class: "font-semibold text-gray-900") {
+                        testimonial.metadata.name
+                    }
+                    div(class: "text-gray-600") {
+                        testimonial.metadata.relationship
+                    }
+                }
+            }
+        }
+    }   
+}
 
-// func renderTestimonials(_ testimonials: [Node]) -> Node {
-//     ul {
-//         for testimonial in testimonials {
-//             li {
-//                 testimonial
-//             }
-//         }
-//     }
-// }
-
-// extension NodeBuilder {
-//     static func buildArray(_ components: [Node]) -> Node {
-//         .fragment(components)
-//     }
-// }
+func renderTestimonials(_ testimonials: [Item<TestimonialMetadata>]) -> Node {
+    div(class: "bg-white py-24 sm:py-32") {
+        div(class: "mx-auto max-w-7xl px-6 lg:px-8") {
+            div(class: "mx-auto max-w-2xl text-center") {
+                h2(class: "text-base/7 font-semibold text-indigo-600") {
+                    "Testimonials"
+                }
+                p(class: "mt-2 text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl") {
+                    "We have spent the past 20 years helping families get their homes in Hawaii"
+                }
+            }
+            div(class: "mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none") {
+                div(class: "-mt-8 sm:-mx-4 sm:columns-2 sm:text-[0] lg:columns-3") {
+                    testimonials.map { renderTestimonial($0) }.join("")
+                }
+            }
+        }
+    }
+}
 
 func renderPage(context: ItemRenderingContext<PageMetadata>) -> Node {
     baseLayout(title: context.item.title) {
@@ -243,24 +253,6 @@ func pagePermalink(item: Item<PageMetadata>) {
 func title(item: Item<PageMetadata>) {
     item.title = item.metadata.title
 }
-
-// func getTestimonial(_ file: String) -> Document {
-//     let path = Path(file)
-//     let data = try! path.read()
-//     let str = String(decoding: data, as: UTF8.self)
-//     let html = try! Parsley.parse(str)
-
-//     return html
-// }
-
-// func getTestimonials(item: Item<HomeMetadata>) {
-//     // Use item.metadata.testimonials to lookup a testimonial and then render it
-//     item.metadata.testimonials = item.metadata.testimonials.map { 
-//         let path = $0
-//         return swim(renderTestimonial(testimonials.first(where: { $0.absoluteSource.string == path })))!
-//     }
-//     item.metadata.testimonials = item.metadata.testimonials.map { renderTestimonial(getTestimonial($0)).toString() }
-// }
 
 var testimonials: [Item<TestimonialMetadata>] = []
 
