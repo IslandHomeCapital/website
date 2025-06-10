@@ -184,7 +184,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource.string) })
+        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource.path) })
     }                    
 }
 
@@ -277,7 +277,6 @@ try await Saga(input: "content", output: "deploy")
     .register(
         metadata: HomeMetadata.self,
         readers: [.inkMarkdownReader],
-        // itemProcessor: getTestimonials,
         writers: [.itemWriter(swim(renderHome))]
     )
 
