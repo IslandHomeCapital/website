@@ -189,7 +189,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
 }
 
 func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
-    div(class: "pt-8 sm:inline-block sm:w-full sm:px-4"> ) {
+    div(class: "pt-8 sm:inline-block sm:w-full sm:px-4") {
         figure(class: "rounded-2xl bg-gray-50 p-8 text-sm/6") {
             blockquote(class: "text-gray-900") {
                 p {
