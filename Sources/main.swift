@@ -184,7 +184,7 @@ func renderHome(context: ItemRenderingContext<HomeMetadata>) -> Node {
                 }
             }
         }
-        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource.path) })
+        renderTestimonials(testimonials.filter { context.item.metadata.testimonials.contains($0.relativeSource.string) })
     }                    
 }
 
@@ -287,4 +287,4 @@ try await Saga(input: "content", output: "deploy")
     // images, raw html files and css, are copied as-is to the output folder.
     .staticFiles()
 
-dump(testimonials)
+dump(testimonials.filter { context.item.metadata.testimonials.contains("testimonials/2025-05-29-corina-j.md") })
