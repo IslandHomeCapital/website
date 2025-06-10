@@ -202,7 +202,7 @@ func renderTestimonial(_ testimonial: Item<TestimonialMetadata>) -> Node {
                         testimonial.metadata.name
                     }
                     div(class: "text-gray-600") {
-                        testimonial.metadata.relationship.encode(to: String)
+                        testimonial.metadata.relationship.rawValue
                     }
                 }
             }
